@@ -2,19 +2,27 @@ package com.rubenskj.loja;
 
 import com.rubenskj.loja.pedido.GeraPedido;
 import com.rubenskj.loja.pedido.GeraPedidoHandler;
+import com.rubenskj.loja.pedido.acao.EnviarEmailPedido;
+import com.rubenskj.loja.pedido.acao.SalvarPedidoNoBandoDeDados;
 
 import java.math.BigDecimal;
+import java.util.Arrays;
 
 public class TestesPedido {
 
     public static void main(String[] args) {
-        String cliente = args[0];
-        BigDecimal valorOrcamento = new BigDecimal(args[1]);
-        int quantidadeItens = Integer.parseInt(args[2]);
+        String cliente = "Rodrigo";
+        BigDecimal valorOrcamento = new BigDecimal("300");
+        int quantidadeItens = Integer.parseInt("2");
 
         GeraPedido geraPedido = new GeraPedido(cliente, valorOrcamento, quantidadeItens);
 
-        GeraPedidoHandler handler = new GeraPedidoHandler(/* dependencias */);
+        GeraPedidoHandler handler = new GeraPedidoHandler(
+                Arrays.asList(
+                        new SalvarPedidoNoBandoDeDados(),
+                        new EnviarEmailPedido()
+                )
+        );
         handler.execute(geraPedido);
     }
 }

@@ -1,10 +1,18 @@
 package com.rubenskj.loja.pedido;
 
 import com.rubenskj.loja.orcamento.Orcamento;
+import com.rubenskj.loja.pedido.acao.Action;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 public class GeraPedidoHandler {
+
+    private List<Action> actions;
+
+    public GeraPedidoHandler(List<Action> actions) {
+        this.actions = actions;
+    }
 
     public void execute(GeraPedido dados) {
         Orcamento orcamento = new Orcamento(dados.getValorOrcamento(), dados.getQuantidadeItens());
@@ -12,7 +20,6 @@ public class GeraPedidoHandler {
 
         Pedido pedido = new Pedido(dados.getCliente(), actual, orcamento);
 
-        System.out.println("Salva pedido no banco de dados");
-        System.out.println("Envia email com os dados do pedido.");
+        actions.forEach(action -> action.executar(pedido));
     }
 }
