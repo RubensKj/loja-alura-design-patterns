@@ -1,6 +1,7 @@
 package com.rubenskj.loja;
 
 import com.rubenskj.loja.pedido.GeraPedido;
+import com.rubenskj.loja.pedido.GeraPedidoHandler;
 
 import java.math.BigDecimal;
 
@@ -13,6 +14,7 @@ public class TestesPedido {
 
         GeraPedido geraPedido = new GeraPedido(cliente, valorOrcamento, quantidadeItens);
 
-        geraPedido.executa();
+        GeraPedidoHandler handler = new GeraPedidoHandler(/* dependencias */);
+        handler.execute(geraPedido);
     }
 }

@@ -1,9 +1,6 @@
 package com.rubenskj.loja.pedido;
 
-import com.rubenskj.loja.orcamento.Orcamento;
-
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
 
 public class GeraPedido {
 
@@ -17,13 +14,15 @@ public class GeraPedido {
         this.quantidadeItens = quantidadeItens;
     }
 
-    public void executa() {
-        Orcamento orcamento = new Orcamento(valorOrcamento, quantidadeItens);
-        LocalDateTime actual = LocalDateTime.now();
+    public String getCliente() {
+        return cliente;
+    }
 
-        Pedido pedido = new Pedido(cliente, actual, orcamento);
+    public BigDecimal getValorOrcamento() {
+        return valorOrcamento;
+    }
 
-        System.out.println("Salva pedido no banco de dados");
-        System.out.println("Envia email com os dados do pedido.");
+    public int getQuantidadeItens() {
+        return quantidadeItens;
     }
 }
