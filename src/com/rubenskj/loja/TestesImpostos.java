@@ -1,7 +1,7 @@
 package com.rubenskj.loja;
 
 import com.rubenskj.loja.imposto.CalculadoraDeImpostos;
-import com.rubenskj.loja.imposto.TipoImposto;
+import com.rubenskj.loja.imposto.ISS;
 import com.rubenskj.loja.orcamento.Orcamento;
 
 import java.math.BigDecimal;
@@ -13,7 +13,7 @@ public class TestesImpostos {
 
         CalculadoraDeImpostos calculadoraDeImpostos = new CalculadoraDeImpostos();
 
-        BigDecimal imposto = calculadoraDeImpostos.calcular(orcamento, TipoImposto.ISS);
+        BigDecimal imposto = calculadoraDeImpostos.calcular(orcamento, new ISS());
 
         System.out.println(imposto);
     }
