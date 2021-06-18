@@ -2,6 +2,7 @@ package com.rubenskj.loja;
 
 import com.rubenskj.loja.orcamento.ItemOrcamento;
 import com.rubenskj.loja.orcamento.Orcamento;
+import com.rubenskj.loja.orcamento.OrcamentoProxy;
 
 import java.math.BigDecimal;
 
@@ -16,6 +17,13 @@ public class TestesComposicao {
         novoOrcamento.adicionarItem(antigo);
         novoOrcamento.adicionarItem(new ItemOrcamento(new BigDecimal("500")));
 
-        System.out.println(novoOrcamento.getValor());
+        OrcamentoProxy proxy = new OrcamentoProxy(novoOrcamento);
+
+        System.out.println(proxy.getValor());
+        System.out.println(proxy.getValor());
+        System.out.println(proxy.getValor());
+        System.out.println(proxy.getValor());
+        System.out.println(proxy.getValor());
+        System.out.println(proxy.getValor());
     }
 }
