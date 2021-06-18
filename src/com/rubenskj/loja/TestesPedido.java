@@ -3,6 +3,7 @@ package com.rubenskj.loja;
 import com.rubenskj.loja.pedido.GeraPedido;
 import com.rubenskj.loja.pedido.GeraPedidoHandler;
 import com.rubenskj.loja.pedido.acao.EnviarEmailPedido;
+import com.rubenskj.loja.pedido.acao.LogDePedido;
 import com.rubenskj.loja.pedido.acao.SalvarPedidoNoBandoDeDados;
 
 import java.math.BigDecimal;
@@ -20,9 +21,11 @@ public class TestesPedido {
         GeraPedidoHandler handler = new GeraPedidoHandler(
                 Arrays.asList(
                         new SalvarPedidoNoBandoDeDados(),
-                        new EnviarEmailPedido()
+                        new EnviarEmailPedido(),
+                        new LogDePedido()
                 )
         );
+
         handler.execute(geraPedido);
     }
 }
