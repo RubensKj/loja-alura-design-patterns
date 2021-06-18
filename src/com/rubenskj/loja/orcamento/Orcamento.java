@@ -1,6 +1,7 @@
 package com.rubenskj.loja.orcamento;
 
 import com.rubenskj.loja.orcamento.situacao.EmAnalise;
+import com.rubenskj.loja.orcamento.situacao.Finalizado;
 import com.rubenskj.loja.orcamento.situacao.Situacao;
 
 import java.math.BigDecimal;
@@ -33,6 +34,10 @@ public class Orcamento {
 
     public void finalizar() {
         this.situacao.finalizar(this);
+    }
+
+    public boolean isFinalizado() {
+        return this.situacao instanceof Finalizado;
     }
 
     public BigDecimal getValor() {
