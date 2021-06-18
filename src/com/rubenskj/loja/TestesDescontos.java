@@ -1,6 +1,7 @@
 package com.rubenskj.loja;
 
 import com.rubenskj.loja.desconto.CalculadoraDeDescontos;
+import com.rubenskj.loja.orcamento.ItemOrcamento;
 import com.rubenskj.loja.orcamento.Orcamento;
 
 import java.math.BigDecimal;
@@ -9,8 +10,10 @@ public class TestesDescontos {
 
     public static void main(String[] args) {
 
-        Orcamento orcamento = new Orcamento(new BigDecimal("200.0"), 6);
-        Orcamento orcamentoMaiorValor = new Orcamento(new BigDecimal("1000.0"), 1);
+        Orcamento orcamento = new Orcamento();
+        orcamento.adicionarItem(new ItemOrcamento(new BigDecimal("200")));
+        Orcamento orcamentoMaiorValor = new Orcamento();
+        orcamentoMaiorValor.adicionarItem(new ItemOrcamento(new BigDecimal("1000")));
 
         CalculadoraDeDescontos calculadoraDeDescontos = new CalculadoraDeDescontos();
 
